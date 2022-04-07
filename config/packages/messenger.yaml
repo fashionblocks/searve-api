@@ -1,0 +1,53 @@
+framework:
+    messenger:
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        failure_transport: failed
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
+            failed: 'doctrine://default?queue_name=failed'
+            works_update: '%env(MESSENGER_TRANSPORT_DSN)%?queue_name=works_update'
+            contract: "%env(MESSENGER_TRANSPORT_DSN)%?queue_name=contract"
+            purchase: "%env(MESSENGER_TRANSPORT_DSN)%?queue_name=purchase"
+            nft:
+                dsn: "%env(MESSENGER_TRANSPORT_DSN)%?queue_name=nft"
+                retry_strategy:
+                    delay: 10000
+                    multiplier: 2
+                    max_delay: 10000
+                    max_retries: 1
+            # sync: 'sync://'
+            delay:
+                dsn: "%env(MESSENGER_TRANSPORT_DSN)%?queue_name=delay"
+                retry_strategy:
+                    delay: 2000
+                    multiplier: 2
+                    max_delay: 10000
+                    max_retries: 5
+
+            tree:
+                dsn: "%env(MESSENGER_TRANSPORT_DSN)%?queue_name=tree"
+                retry_strategy:
+                    delay: 2000
+                    multiplier: 2
+                    max_delay: 10000
+                    max_retries: 5
+
+        routing:
+#            App\Message\UpdateWorksMessage: works_update
+#            App\Message\ContractMessage: contract
+#            App\Message\AssetCreateMessage: contract
+#            App\Message\TokenMetaMessage: contract
+#            App\Message\ScoopMessage: contract
+#            App\Message\PaySucceedMessage: delay
+#            App\Message\NftCreateMessage: delay
+#            App\Message\TxVerifyMessage: delay
+#            App\Message\PurchaseCloseMessage: purchase
+#            App\Message\CombineMessage: nft
+#            App\Message\CombineSucceedMessage: nft
+#            App\Message\ClientMessage: tree
+#            App\Message\WaterMessage: tree
+#            App\Message\WaterRewardMessage: tree
+#            App\Message\MergedMessage: tree
+#            App\Message\FruitMessage: tree

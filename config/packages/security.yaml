@@ -1,0 +1,66 @@
+security:
+#    encoders:
+#        App\Entity\Wheel:
+#            algorithm: auto
+#        App\Entity\Member:
+#            algorithm: auto
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+#    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+#        app_member_provider:
+#            entity:
+#                class: App\Entity\Member
+#                property: address
+#        app_wheel_provider:
+#            entity:
+#                class: App\Entity\Wheel
+#                property: mobile
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+        main:
+            pattern: ^/(api|fs)/
+            anonymous: true
+            lazy: true
+#            provider: app_member_provider
+#            guard:
+#                entry_point: App\Security\AddressAuthenticator
+#                authenticators:
+#                    - App\Security\AddressAuthenticator
+#                    - App\Security\SSOAuthenticator
+#                    - App\Security\FluenceAuthenticator
+##                    - App\Security\GoogleAuthenticator
+#            remember_me:
+#                secret: '%env(resolve:APP_SECRET)%'
+#                lifetime: 18144000
+#                always_remember_me: true
+            logout:
+                path: app_security_logout
+#        wheel:
+#            pattern: ^/wheel/
+#            anonymous: true
+#            provider: app_wheel_provider
+#            guard:
+#                authenticators:
+#                    - App\Security\WheelAuthenticator
+#            logout:
+#                path: app_wheel_logout
+                # where to redirect after logout
+                # target: app_any_route
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/wheel, roles: ROLE_WHEEL }
+#        - { path: ^/fs/, method: 'POST', roles: ROLE_ARTIST }
+        # - { path: ^/profile, roles: ROLE_USER }

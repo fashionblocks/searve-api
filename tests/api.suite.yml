@@ -1,0 +1,19 @@
+actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: ~
+            depends: Symfony
+        - DataFactory:
+            factories: tests/_support/factories
+            depends: Doctrine2
+        - Doctrine2:
+            depends: Symfony
+            cleanup: true
+        - Symfony:
+            app_path: 'src'
+            environment: 'test'
+        - Sequence
+        - Asserts
+        - \Helper\Api
+bootstrap: bootstrap.php

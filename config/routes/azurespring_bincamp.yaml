@@ -1,0 +1,9 @@
+AzureSpringBincampBundle:
+    resource: "@AzureSpringBincampBundle/Resources/config/routing.yml"
+    prefix:   /fs
+
+wheel.fs:
+    resource: "@AzureSpringBincampBundle/Resources/config/routing.yml"
+    prefix:   /wheel/fs
+    name_prefix: wheel_
+

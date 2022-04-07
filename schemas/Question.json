@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "subject": {
+      "$ref": "Subject.json"
+    },
+    "serial": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "required": [
+      "id",
+      "subject",
+      "serial",
+      "title",
+      "body"
+    ],
+    "additionalProperties": false
+  }
+}

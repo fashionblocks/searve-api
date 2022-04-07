@@ -1,0 +1,26 @@
+/.idea/
+/x/vendor/
+/public/fs/
+
+*~
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+/ip0_broker/venv
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+pinata/node_modules/
+.DS_Store
+public/.DS_Store
+imx2/node_modules
+imx/node_modules

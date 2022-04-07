@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  database:
+    image: postgres:13
+    shm_size: 2gb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: ip0
+    ports:
+      - 5432
+
+  gateway:
+    build: ./x
+    ports:
+      - 4000

@@ -1,0 +1,80 @@
+<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0"
+       {% if app.request and  app.request.locale == 'zh' %}
+
+       style="font-size:14px;font-family:Microsoft Yahei,Arial, Helvetica, sans-serif;padding:0;margin:0;color:#333;background-color:#f7f7f7;background-repeat:repeat-x;background-position:bottom left;"
+
+       {% else %}
+           style="font-size:14px;font-family:Helvetica-Bold, Microsoft Yahei,Arial, Helvetica, sans-serif;padding:0;margin:0;color:#333;background-color:#f7f7f7;background-repeat:repeat-x;background-position:bottom left;"
+       {% endif %}
+>
+    <tbody>
+    <tr>
+        <td style="text-align: center" >
+            <table cellpadding="0" cellspacing="0" border="0"
+                   {% if app.request and app.request.locale == 'zh' %}
+                   style="font-size:14px;font-family:Microsoft Yahei,Arial, Helvetica, sans-serif;padding:0;margin:0;color:#333;background-color:#f7f7f7;background-repeat:repeat-x;background-position:bottom left;margin: 0px auto; padding: 0px 120px 300px"
+                    {% else %}
+                        style="font-size:14px;font-family:Helvetica-Bold,Microsoft Yahei,Arial, Helvetica, sans-serif;padding:0;margin:0;color:#333;background-color:#f7f7f7;background-repeat:repeat-x;background-position:bottom left;margin: 0px auto; padding: 0px 120px 300px"
+
+                   {% endif %}
+            >
+                <tbody>
+                <tr>
+                    <td>
+                        <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td align="center" valign="middle" style="padding:33px 0 15px;">
+{#                                    <a href="https://www.eurostocktrade.com" target="_blank"><img#}
+{#                                                src="https://www.eurostocktrade.com/img/logo_mail.svg" width="152" height="54" style="border:0;"></a>#}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left">
+                                    <div style="padding:0 30px;background:#fff;box-shadow:0 0 5px #eee;">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                                            <tbody>
+                                            <tr>
+                                                <td style="font-size:18px;padding:28px 0; border-bottom: 1px solid #e6e6e6; width: 100%" colspan="2">
+                                                    {% block title %}
+                                                        {{ title }}
+                                                    {% endblock %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:14px;line-height:30px;padding:20px 0;color:#666;" colspan="2">
+                                                    {% trans %}Hello{% endtrans %}:<br>
+                                                    {% block content %}
+                                                        {{ content|raw }}
+                                                    {% endblock %}
+                                                    <br/><br/>
+                                                    {% trans %}If this activity is not your own operation, please contact us immediately.{% endtrans %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right">
+                                                    {% trans %}Automated message. please do not reply{% endtrans %}<br/>
+                                                    <a href="http://{{ domain|default }}" target="_blank"
+                                                       style="color: rgb(18, 65, 160)">{{ domain|default }}</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="middle" style="padding:33px 0;">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+</table>
+
